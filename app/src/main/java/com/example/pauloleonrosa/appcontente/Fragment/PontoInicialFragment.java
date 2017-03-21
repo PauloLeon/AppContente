@@ -32,8 +32,13 @@ import com.example.pauloleonrosa.appcontente.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 import app.AppConfig;
 import app.AppController;
@@ -57,6 +62,19 @@ public class PontoInicialFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.ponto_inicial, container, false);
         pointBtn = (Button) rootView.findViewById(R.id.btn_gps);
+        hora = (TextView) rootView.findViewById(R.id.text_hour);
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setCancelable(false);
+
+        /* desabilitar  o botão caso seja antes das 18h */
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT+1:00"));
+        Date currentLocalTime = cal.getTime();
+        DateFormat date = new SimpleDateFormat("HH:MM");
+        DateFormat dateTest = new SimpleDateFormat("HH");
+        date.setTimeZone(TimeZone.getTimeZone("GMT-3:00"));
+
+        String localTime = date.format(currentLocalTime);
+        hora.setText(localTime);
 
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -138,7 +156,7 @@ public class PontoInicialFragment extends Fragment {
                     public void onErrorResponse(VolleyError error) {
                         Log.e("TAG", "Login Error: " + error.getMessage());
                         Toast.makeText(getActivity().getApplicationContext(),
-                                "Ops! Login ou Senha incorretos", Toast.LENGTH_LONG)
+                                "Ops! Server Off-line", Toast.LENGTH_LONG)
                                 .show();
                         hideDialog();
                     }

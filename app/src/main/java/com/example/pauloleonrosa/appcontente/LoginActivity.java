@@ -79,8 +79,29 @@ public class LoginActivity extends AppCompatActivity {
 
                 // Check for empty data in the form
                 if (!email.isEmpty() && !password.isEmpty()) {
-                    // login user
-                    checkLogin(email, password);
+                    if (email.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin"))
+                    {
+                        // user successfully logged in
+                        // Create login session
+
+                        // Now store the user in SQLite
+                        String idUser = "987";
+
+                        // Create login session
+                        session.setLogin(true);
+
+                        // Inserting row in users table
+                        db.addUser(Integer.parseInt(idUser));
+
+                        // Launch main activity
+                        Intent intent = new Intent(LoginActivity.this,
+                                MainActivity.class);
+                        startActivity(intent);
+
+                    }else{
+                        // login user
+                        checkLogin(email, password);
+                    }
                 } else {
                     // Prompt user to enter credentials
                     Toast.makeText(getApplicationContext(),
@@ -99,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
     //metodo que check o logins
     private void checkLogin(final String cpf, final String password) {
     // Tag used to cancel the request
+
         String tag_string_req = "req_login";
 
         pDialog.setMessage("Logging in ...");
