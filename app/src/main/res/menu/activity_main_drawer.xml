@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_directions"
+            android:title="Tela Principal" />
+        <item
+            android:id="@+id/nav_route"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Endereços/Rotas" />
+        <item
+            android:id="@+id/nav_maps"
+            android:icon="@drawable/ic_menu_marker_two"
+            android:title="Google Maps" />
+    </group>
+
+    <item android:title="Pontos">
+        <menu>
+            <item
+                android:id="@+id/nav_point_one"
+                android:icon="@drawable/ic_menu_point"
+                android:title="Ponto Inicial" />
+            <item
+                android:id="@+id/nav_point_two"
+                android:icon="@drawable/ic_menu_point"
+                android:title="Ponto Almoço" />
+            <item
+                android:id="@+id/nav_point_three"
+                android:icon="@drawable/ic_menu_point"
+                android:title="Ponto Volta Almoço" />
+            <item
+                android:id="@+id/nav_point_four"
+                android:icon="@drawable/ic_menu_point"
+                android:title="Ponto de Saída" />
+        </menu>
+    </item>
+
+   <!-- <item android:title="Comunicação">
+        <menu>
+            <item
+                android:id="@+id/nav_finalizar"
+                android:icon="@drawable/ic_menu_grups"
+                android:title="Finalizar Entrega" />
+            <item
+                android:id="@+id/nav_config"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Configurações" />
+        </menu>
+    </item>-->
+
+</menu>

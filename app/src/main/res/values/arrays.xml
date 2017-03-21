@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ocorrencias">
+        <item>Cliente não estava em casa </item>
+        <item>Endereço Errado </item>
+        <item>Produto Errado </item>
+        <item>Problema de Montagem </item>
+    </string-array>
+</resources>
