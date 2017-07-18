@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.pauloleonrosa.appcontente.Fragment.CaptureSignatureFragment;
 import com.example.pauloleonrosa.appcontente.Fragment.GmapFragment;
 import com.example.pauloleonrosa.appcontente.Fragment.LocationFragment;
 import com.example.pauloleonrosa.appcontente.Fragment.PontoFinalFragment;
@@ -123,8 +124,12 @@ public class MainActivity extends AppCompatActivity
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, locationFragment);
             fragmentTransaction.commit();
+
         } else if (id == R.id.nav_maps) {
             fm.beginTransaction().replace(R.id.fragment_container, new GmapFragment()).commit();
+
+        } else if (id == R.id.nav_signature) {
+            fm.beginTransaction().replace(R.id.fragment_container, new CaptureSignatureFragment()).commit();
 
 
         }  else if (id == R.id.nav_point_one) {
@@ -142,18 +147,6 @@ public class MainActivity extends AppCompatActivity
         }  else if (id == R.id.nav_point_four) {
             fm.beginTransaction().replace(R.id.fragment_container, new PontoFinalFragment()).commit();
 
-
-        /*}else if (id == R.id.nav_finalizar) {
-            //fm.beginTransaction().replace(R.id.fragment_container, new DetalheEntregaFragment()).commit();
-
-            DetalheEntregaFragment detalheEntregaFragment = new DetalheEntregaFragment();
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, detalheEntregaFragment);
-            fragmentTransaction.commit();
-*/
-      /*  } else if (id == R.id.nav_config) {
-
-*/
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
